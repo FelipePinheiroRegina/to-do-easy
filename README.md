@@ -3,7 +3,8 @@
     <img src="./assets/styledcomponents.svg" alt="Styled" width="48">
 </div>
 
-### Desafio cotefácil :dollar:
+<h1 align="center"> Desafio cotefácil :dollar:</h1>
+
 ### To-Do List
 
 ![HOME DARKMODE](./assets/home-darkmode.png)
@@ -64,5 +65,7 @@ npm run build
  <img src="./assets/profile1.jpeg" alt="Profile" width="48">
 
  <strong>Felipe Pinheiro</strong>
+ 
  [LinkedIn](https://www.linkedin.com/in/felipe-pinheiro-002427250/)
+ 
  [Último projeto](https://github.com/FelipePinheiroRegina/food-explorer-frontend)
