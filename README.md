@@ -7,7 +7,7 @@
 
 ### To-Do List
 
-[Aplicação no AR!](https://to-doeasy.netlify.app/)
+[Clique aqui para ir para o to do easy](https://to-doeasy.netlify.app/)
 
 ![HOME DARKMODE](./assets/home-darkmode.png)
 ![HOME DARKMODE](./assets/home-lightmode.png)
