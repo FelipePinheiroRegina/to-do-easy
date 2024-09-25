@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.a`
+  position: relative;
   display: grid;
   grid-template-columns: 20px 1fr 20px 20px;
   gap: 16px;
@@ -31,6 +32,7 @@ export const Container = styled.a`
     color: ${({ theme }) => theme.COLORS.GREEN_200};
     `};
   }
+
 `;
 
 export const Details = styled.div`

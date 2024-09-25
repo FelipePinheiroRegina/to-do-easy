@@ -5,14 +5,17 @@ import { TextArea } from '../../components/TextArea/Index'
 import { Button } from '../../components/Button'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 
 export function Update() {
     const { id }= useParams()
     const navigate = useNavigate()
-    let tasks = JSON.parse(localStorage.getItem('@to-do-easy:tasks')) 
-    tasks = tasks.filter(task => task.id === id)
-    const [ title, setTitle ] = useState(tasks[0].title)
-    const [ description, setDescription ] = useState(tasks[0].description)
+
+    const tasks = JSON.parse(localStorage.getItem('@to-do-easy:tasks'))
+    const [ currentTask ] = tasks.filter(task => task.id === id) 
+
+    const [ title, setTitle ] = useState(currentTask.title) 
+    const [ description, setDescription ] = useState(currentTask.description)
 
     const handleNavigateBack = () => {
         navigate(-1)
@@ -20,18 +23,26 @@ export function Update() {
 
     function handleUpdate(e) {
         e.preventDefault()
-        tasks = JSON.parse(localStorage.getItem('@to-do-easy:tasks'))
+        
+        if(!title || !description) return toast.error('Preencha todos os campos!')
+        
+        currentTask.title = title
+        currentTask.description = description
+
         const index = tasks.findIndex(task => task.id === id)
-        
+
         if(index != -1) {
-            tasks.splice(index, 1, )
+            tasks.splice(index, 1, currentTask)
         }
-        
+
+        localStorage.setItem('@to-do-easy:tasks', JSON.stringify(tasks))
+        toast.success('Tarefa atualizada!')
     }
 
     return (
         <Container>
             <Header>
+                <ToastContainer theme='dark' autoClose={2000}/>
                 <div className='back'>
                     <ArrowLeft onClick={handleNavigateBack}/>
                 </div>

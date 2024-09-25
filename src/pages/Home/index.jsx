@@ -5,8 +5,10 @@ import { Search } from "../../components/Search";
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
 import { Priorities } from "../../components/Priorities";
+import { toast, ToastContainer } from "react-toastify";
 
 import { Container, FixedContent } from "./styles";
+import { useRefresh } from '../../hooks/refresh'
 
 export function Home() {
   const [filter, setFilter] = useState("do");
@@ -14,6 +16,7 @@ export function Home() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [ search, setSearch ] = useState('') 
+  const {refresh} = useRefresh()
 
   useEffect(() => {
     let arrayTasks = localStorage.getItem('@to-do-easy:tasks');
@@ -27,14 +30,15 @@ export function Home() {
     let newData;
 
     switch (filter) {
+      case "do":
+        newData = data.filter((task) => task.status === 'do');
+        break;
       case "doing":
-        newData = data.filter((task) => task.done === false);
+        newData = data.filter((task) => task.status === 'doing');
         break;
       case "finished":
-        newData = data.filter((task) => task.done === true);
+        newData = data.filter((task) => task.status === 'finished');
         break;
-      default:
-        newData = data;
     }
 
     // Depois, aplica o filtro de busca
@@ -46,11 +50,11 @@ export function Home() {
     }
 
     setFilteredData(newData);
-  }, [filter, data, search]);
+  }, [filter, data, search, refresh]);
   
-  console.log(filteredData)
   return (
     <Container>
+      <ToastContainer theme="dark" autoClose={2000}/>
       <SideMenu
         menuIsOpen={menuIsOpen}
         onCloseMenu={() => setMenuIsOpen(false)}
@@ -68,7 +72,7 @@ export function Home() {
 
       </FixedContent>
 
-      <Tasks data={filteredData}/>
+      <Tasks data={filteredData} toast={toast}/>
     </Container>
   );
 }

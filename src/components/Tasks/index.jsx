@@ -1,7 +1,7 @@
 import { Task } from "../Task";
 import { Container } from './styles';
 
-export function Tasks({ data }) {
+export function Tasks({ toast, data }) {
   return (
     <Container>
       {
@@ -9,6 +9,7 @@ export function Tasks({ data }) {
           <Task
             key={task.id}
             data={task}
+            toast={toast}
           />
         ))
       }

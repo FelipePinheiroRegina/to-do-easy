@@ -4,6 +4,7 @@ import { ShortTask } from "../ShortTask";
 
 export function Priorities({tasks}) {
   const countPriorities = tasks.filter((task) => task.priority === true);
+
   return (
     <Container>
       <Header>
