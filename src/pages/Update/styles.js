@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 
 export const Container = styled.div`
     width: 100%;
@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
     height: 100px;
-    background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+    background-color: ${({ theme }) => theme.COLORS.COMPONENTS_DARK};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,6 +47,10 @@ export const Header = styled.header`
     > .hidden {
         width: 100%;
     }
+
+    ${({ $light }) => $light === true && css`
+        background-color: ${({ theme }) => theme.COLORS.COMPONENTS_LIGHT};
+    `}
 `
 
 export const Form = styled.form`
@@ -63,9 +67,11 @@ export const Form = styled.form`
         width: 100%;
         display: flex;
         justify-content: end; 
+        gap: 8px;
 
-        .button-update {
-            width: 30%;
-         } 
+        .delete {
+            background-color: ${({ theme }) => theme.COLORS.RED_200};
+            color: ${({ theme }) => theme.COLORS.GRAY_950};
+        }
     }
 `

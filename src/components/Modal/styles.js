@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.div`
@@ -45,7 +45,7 @@ export const Container = styled.div`
     }
 
 
-    background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+    background-color: ${({ theme }) => theme.COLORS.MODAL_DARK};
 
     
     visibility: hidden;
@@ -59,4 +59,8 @@ export const Container = styled.div`
         transform: translateX(53px) scaleX(1);
         transition: .5s;
     }
+
+    ${({ $light }) => $light === true && css`
+        background-color: ${({ theme }) => theme.COLORS.MODAL_LIGHT};
+    `}
 `

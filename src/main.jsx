@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import GlobalStyles from './styles/global';
 import { RefreshProvider } from './hooks/refresh'
-
 import { RoutesApp } from './routes/index';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

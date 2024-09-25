@@ -1,11 +1,9 @@
 import { Container } from "./styles"
 import { CheckCircle, Circle, Clock } from "@phosphor-icons/react"
-import { useState } from "react"
 import { useRefresh } from "../../hooks/refresh"
 
 export function Modal({openModal, data, toast, closeModal}) {
-    const {refresh, setRefresh} = useRefresh()
-
+    const {refresh, setRefresh, light} = useRefresh()
     const handleOption = (option) => {
         if(data.status === option) {
             closeModal(false)
@@ -28,7 +26,7 @@ export function Modal({openModal, data, toast, closeModal}) {
     }
     
     return (
-        <Container data-open-modal={openModal}>
+        <Container data-open-modal={openModal} $light={light}>
             <Circle className="circle"     onClick={() => handleOption('do')}/>
             <Clock className="clock"       onClick={() => handleOption('doing')}/>
             <CheckCircle className="check" onClick={() => handleOption('finished')}/>

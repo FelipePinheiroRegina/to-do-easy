@@ -17,7 +17,7 @@ export function Home() {
   const [filteredData, setFilteredData] = useState([]);
   const [ search, setSearch ] = useState('') 
   const {refresh} = useRefresh()
-
+  
   useEffect(() => {
     let arrayTasks = localStorage.getItem('@to-do-easy:tasks');
     arrayTasks = JSON.parse(arrayTasks);

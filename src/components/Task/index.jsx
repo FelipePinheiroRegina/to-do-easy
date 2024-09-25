@@ -9,10 +9,10 @@ import { useRefresh } from '../../hooks/refresh'
 import { IconsStatus } from "../IconsStatus"
 
 
-export function Task({ toast ,data, ...rest}) {
+export function Task({ toast, data, ...rest}) {
   const { COLORS } = useTheme()
   const navigate = useNavigate()
-  const {refresh, setRefresh} = useRefresh()
+  const { refresh, setRefresh, light } = useRefresh()
   const [ openModal, setOpenModal ] = useState(false) 
 
   const handleNavigateUpdate = (idTask) => {
@@ -31,7 +31,7 @@ export function Task({ toast ,data, ...rest}) {
 
     localStorage.setItem('@to-do-easy:tasks', JSON.stringify(tasks))
     setRefresh(!refresh)
-    toast.success('Atualizado!')
+    toast.success('Prioridades atualizada!')
   }
 
   function handleOpenModal() {
@@ -40,7 +40,7 @@ export function Task({ toast ,data, ...rest}) {
   
   return (
     <Container type="button" 
-      $done={data.done} 
+       $light={light}
       {...rest} 
     >
       
@@ -51,10 +51,11 @@ export function Task({ toast ,data, ...rest}) {
         toast={toast}
         closeModal={setOpenModal}
       />
-
-
       
-      <IconsStatus status={data.status} className="iconStatus"/>
+      <IconsStatus 
+        onClick={handleOpenModal}
+        status={data.status} 
+        className="iconStatus" />
 
       <Details>
         <span>{data.title}</span>

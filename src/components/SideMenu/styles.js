@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.aside`
   grid-area: menu;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  background-color: ${({ theme }) => theme.COLORS.COMPONENTS_DARK};
   width: 100%;
   height: 100vh;
 
@@ -23,6 +23,9 @@ export const Container = styled.aside`
     }
   }
 
+  ${({ $light }) => $light === true && css`
+    background-color: ${({ theme }) => theme.COLORS.COMPONENTS_LIGHT};
+  `}
 `;
 
 export const Header = styled.header`
@@ -50,7 +53,7 @@ export const Nav = styled.nav`
   flex: 1;
 
   > a {
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    color: ${({ theme }) => theme.COLORS.COLOR_DARK};
     display: flex;
     align-items: center;
     gap: 7px;
@@ -62,6 +65,10 @@ export const Nav = styled.nav`
       background-color: ${({ theme }) => theme.COLORS.GREEN_200};
       color: ${({ theme }) => theme.COLORS.GREEN_600};
     }
+
+    ${({ $light }) => $light === true && css`
+      color: ${({ theme }) => theme.COLORS.COLOR_LIGHT};
+    `}
   }
 `;
 

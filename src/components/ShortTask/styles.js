@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Container = styled.button`
-  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  background-color: ${({ theme }) => theme.COLORS.COMPONENTS_DARK};
+  color: ${({ theme }) => theme.COLORS.COLOR_DARK};
   height: 44px;
   border: 0;
   padding: 0 1rem;
@@ -17,4 +17,9 @@ export const Container = styled.button`
     font-size: 1.12rem;
     color: ${({ theme }) => theme.COLORS.RED_200};
   }
+
+  ${({ $light }) => $light === true && css`
+    background-color: ${({ theme }) => theme.COLORS.COMPONENTS_LIGHT};
+    color: ${({ theme }) => theme.COLORS.COLOR_LIGHT};
+  `}
 `;

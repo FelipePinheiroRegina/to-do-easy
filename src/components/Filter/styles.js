@@ -5,7 +5,7 @@ export const Container = styled.button`
   font-size: 1rem;
   border: 0;
 
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  color: ${({ theme }) => theme.COLORS.COLOR_DARK};
 
   &:after {
     display:block;
@@ -22,4 +22,8 @@ export const Container = styled.button`
     color: ${theme.COLORS.GREEN_200}
   `};
 
+  // Estilos para o modo claro
+  ${({ $light }) => $light === true && css`
+    color: ${({ theme }) => theme.COLORS.COLOR_LIGHT};
+  `}
 `;

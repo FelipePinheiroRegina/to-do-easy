@@ -6,8 +6,10 @@ import { Button } from '../../components/Button'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
+import { useRefresh } from '../../hooks/refresh'
 
 export function Update() {
+    const { light } = useRefresh()
     const { id }= useParams()
     const navigate = useNavigate()
 
@@ -39,9 +41,23 @@ export function Update() {
         toast.success('Tarefa atualizada!')
     }
 
+    function handleDelete() {
+        const index = tasks.findIndex(task => task.id === id)
+
+        if(index != -1) {
+            tasks.splice(index, 1)
+        }
+
+        localStorage.setItem('@to-do-easy:tasks', JSON.stringify(tasks))
+        toast.success('Tarefa deletada!')
+        setTimeout(() => {
+            navigate('/')
+        }, 1000)
+    }
+
     return (
         <Container>
-            <Header>
+            <Header $light={light}>
                 <ToastContainer theme='dark' autoClose={2000}/>
                 <div className='back'>
                     <ArrowLeft onClick={handleNavigateBack}/>
@@ -71,6 +87,12 @@ export function Update() {
                 </TextArea>
 
                 <div className='aux-position'>
+                    <Button 
+                        title="Deletar tarefa" 
+                        className="delete"
+                        onClick={handleDelete}
+                    />
+
                     <Button type="submit" title="Atualizar" className="button-update"/>
                 </div>
             </Form>

@@ -8,8 +8,10 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRefresh } from '../../hooks/refresh'
 
 export function Create() {
+    const { light } = useRefresh()
     const [ title, setTitle ] = useState('')
     const [ description, setDescription ] = useState('')
     const tasks = []
@@ -50,7 +52,7 @@ export function Create() {
 
     return (
         <Container>
-            <Header>
+            <Header $light={light}>
                 <ToastContainer theme='dark' autoClose={2000}/>
 
                 <div className='back'>

@@ -3,20 +3,15 @@ import styled, { css } from 'styled-components';
 export const Container = styled.a`
   position: relative;
   display: grid;
-  grid-template-columns: 20px 1fr 20px 20px;
+  grid-template-columns: 30px 1fr 20px 20px;
   gap: 16px;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  background-color: ${({ theme }) => theme.COLORS.COMPONENTS_DARK};
+  color: ${({ theme }) => theme.COLORS.COLOR_DARK};
 
   padding: 1.5rem 1rem;
   border-radius: 0.43rem;
-
-
-  ${({ $done }) => $done && css`
-    opacity: 0.5;
-  `};
 
   > svg {
     font-size: 1.5rem;
@@ -27,11 +22,10 @@ export const Container = styled.a`
     }
   }
 
-  > .check {
-    ${({ $done }) => $done && css`
-    color: ${({ theme }) => theme.COLORS.GREEN_200};
-    `};
-  }
+  ${({ $light }) => $light === true && css`
+    background-color: ${({ theme }) => theme.COLORS.COMPONENTS_LIGHT};
+    color: ${({ theme }) => theme.COLORS.COLOR_LIGHT};
+  `}
 
 `;
 
@@ -39,6 +33,7 @@ export const Details = styled.div`
   display: flex;
   flex: 1;  
   flex-direction: column;
+  gap: .2rem;
 
   > span {
     font-size: 0.87rem;

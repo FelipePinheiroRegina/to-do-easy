@@ -1,13 +1,23 @@
 export default {
   COLORS: {
-    GRAY_100: "#E1E1E6",
     GRAY_200: "#C4C4CC",
     GRAY_300: "#8D8D99",
     GRAY_400: "#7C7C8A",
     GRAY_500: "#505059",
     GRAY_600: "#323238",
-    GRAY_700: "#29292E",
-    GRAY_800: "#202024",
+    
+    // DARK MODE
+    BACKGROUND_DARK: "#202024", 
+    COMPONENTS_DARK: "#29292E",
+    MODAL_DARK: "#202024",
+    COLOR_DARK: "#E1E1E6",
+
+    // LIGHT MODE
+    BACKGROUND_LIGHT: '#FFFFFF',
+    COMPONENTS_LIGHT: "#F5F5F5",
+    MODAL_LIGHT:      "#FFFFFF",
+    COLOR_LIGHT: "#09090A", 
+
     GRAY_900: "#121214",
     GRAY_950: "#09090A",
 

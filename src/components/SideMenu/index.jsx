@@ -9,9 +9,11 @@ import {
 
 import { Container, Footer, Nav, Title, Header, Button } from "./styles";
 import { useState } from "react";
+import { useRefresh } from "../../hooks/refresh"
 
 
 export function SideMenu({ menuIsOpen, onCloseMenu }) {
+  const { light } = useRefresh()
   const [active, setActive] = useState('Home')
 
   const handleChangeActive = (option) => {
@@ -19,7 +21,11 @@ export function SideMenu({ menuIsOpen, onCloseMenu }) {
   }
 
   return (
-    <Container data-menu-is-open={menuIsOpen}>
+    <Container 
+      data-menu-is-open={menuIsOpen}
+      $light={light}
+      >
+
       <Header>
         <Title>
           <CurrencyCircleDollar/>
@@ -33,7 +39,7 @@ export function SideMenu({ menuIsOpen, onCloseMenu }) {
         }
       </Header>
 
-      <Nav>
+      <Nav $light={light}>
         <a href="#" 
           data-menu-active={`${active === "Home" ? true : false}`}
           onClick={() => handleChangeActive('Home')}>

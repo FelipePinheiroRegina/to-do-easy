@@ -16,6 +16,21 @@ export const Container = styled.header`
     font-size: 2rem;
   }
 
+  > .container-task-mode {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .light-dark {
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
   @media (max-width: ${DEVICE_BREAKPOINTS.XS}) {
     > h1 {
       font-size: 1.5rem;

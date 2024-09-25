@@ -16,11 +16,17 @@ export default createGlobalStyle`
     }
   }
 
-
   body {
-    background-color: ${({ theme }) => theme.COLORS.GRAY_800};
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    // DARK MODE
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_DARK};
+    color: ${({ theme }) => theme.COLORS.COLOR_DARK};
+    -webkit-font-smoothing: antialiased;
+  }
 
+  html.light body {
+    // LIGHT MODE
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_LIGHT};
+    color: ${({ theme }) => theme.COLORS.COLOR_LIGHT};
     -webkit-font-smoothing: antialiased;
   }
 
