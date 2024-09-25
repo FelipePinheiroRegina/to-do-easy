@@ -3,7 +3,7 @@
     <img src="./assets/styledcomponents.svg" alt="Styled" width="48">
 </div>
 
-<h1 align="center"> Desafio cotefácil :dollar:</h1>
+<h1 align="center">Desafio cotefácil</h1>
 
 ### To-Do List
 
