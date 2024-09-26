@@ -7,7 +7,7 @@
 
 ### To-Do List
 
-[Clique aqui para ir para o to do easy](https://to-doeasy.netlify.app/)
+[To-Do Easy está no ar! Clique aqui para otimizar suas tarefas de forma fácil e prática.](https://to-doeasy.netlify.app/)
 
 ![HOME DARKMODE](./assets/home-darkmode.png)
 ![HOME DARKMODE](./assets/home-lightmode.png)
@@ -39,7 +39,7 @@
 A aplicação foi desenvolvida com Vite e JavaScript | React, seguindo o conceito Mobile First para garantir uma boa experiência em dispositivos móveis, tablets e desktops. Para a navegação entre as rotas (Home, Create, Update), utilizei React Router DOM. Para gerenciar o estado e atualizar os componentes, implementei o contexto. A manipulação de variáveis e eventos foi realizada com os hooks useState e useEffect. Os dados são armazenados em um array de objetos no localStorage. Para a estilização, utilizei Styled Components. Criei uma pasta styles para conter objetos de cores, breakpoints e meu arquivo global. Além disso, para notificações, utilizei React Toastify.
 
 ### Como executar a aplicação
-Utilizando git, siga os passos abaixo:
+Requisitos: Node, Npm, Git. Tendo todos instalados na sua máquina siga os passos abaixo.
 ```
 // bash or powershell
 // crie um diretório de projetos
