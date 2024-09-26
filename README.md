@@ -23,7 +23,7 @@
 - [x] Um usuário deve poder criar uma tarefa
 - [x] Um usuário deve poder atualizar uma tarefa
 - [x] Um usuário deve poder deletar uma tarefa
-- [x] Um usuário deve poder alterar o status da tarefa (Fazer, Feito, Finalizado)
+- [x] Um usuário deve poder alterar o status da tarefa (Fazer, Fazendo, Finalizado)
 - [x] As tarefas de um usuário devem persistir utilizando localStorage.
 - [x] A aplicação deve ser estilizada com CSS
 - [x] A aplicação deve conter hooks(useState, useEffect)
